@@ -34,4 +34,15 @@ for hack in data
     # b = values[3]
     # c = values[4]
     # console.log "#{z}*(#{x}*((#{a} * #{likes}) + (#{b} * #{comments})) + (#{c}*#{c} * #{tags}))"
-    # cons
+    # console.log values[0]
+    # console.log values[1]
+    # console.log values[2]
+    # console.log values[3]
+    # console.log values[4]
+    if expected  == Math.round(rate(hack.num_likes, hack.num_comments,hack.tags.length*2))
+        correct += 1
+
+console.log "Correctness = " + correct/data.length
+
+    
+
