@@ -8,4 +8,11 @@ function rate(iLikes,iComments,iTags)
     z = values[0];
     x = values[1];
     a = values[2];
-    b = valu
+    b = values[3];
+    c = values[4];
+
+    return z * (x * ((a * likes) + (b * comments)) + (c * c * tags));
+}
+
+
+module.exports = {rate}
