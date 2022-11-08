@@ -1,0 +1,26 @@
+html
+  head
+    title DeepHack - Explore hackathon projects
+    link(href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css')
+    link(rel="stylesheet" type="text/css" href="/static/normalize.css")
+    link(rel="stylesheet" type="text/css" href="/static/skeleton.css")
+    link(rel="stylesheet" type="text/css" href="/static/app.css")
+  body
+    div.chart-container
+      canvas#nav-canvas
+    div.navbar
+      div.container
+        a(href="/")
+          img(src="/static/brainlogo.png")
+
+    div.container
+      script.
+        function performsearch() { window.location.replace(
+          "/q/" + document.getElementById("search-box").value
+        ); return false}
+
+      form#search-form(onsubmit="return performsearch()")
+        div.row
+          div.twelve.columns
+            input#search-box.u-full-width(type="text" placeholder="Search...")
+     
