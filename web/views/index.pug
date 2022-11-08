@@ -1,0 +1,31 @@
+
+extends base.pug
+
+block container
+  div.row
+    div.twelve.columns
+      h3 Most popular tags
+      canvas#recent-hacks.home-chart
+  div.content
+    h3 What is deephack? 
+    p Deephack was a project built in 24 hours that provides insight into the trends in technology of over 100,000 different hackathon projects from the website Devpost.com. Deephack has a page for almost every software or service. Deephack is constantly updating its index which allows you to view the changes in popularity of different technologies. It was created by <a href="https://twitter.com/jonnyballs_">@jonnyballs_</a> and <a href="https://twitter.com/pedsm">@pedsm</a>
+    h3 How to use deephack?
+    p Simply search for a project title or tag (programming language, tool etc.). If your search term matches a tag, you will be taken to a page detailing the trends in popularity of the technology as well as related tags and the most popular projects under that tag.
+    h3 Deephack score
+    p The Deephack score is a special score designed to indicate the quality of a project. The scores are calculated using a deep learning model which predicts likelihood of hackathon success (e.g. chance of winning) based on various pieces of metadata. The model has over 75% of accuracy on predicting the amount of prizes a hack won. The highest scoring hacks are often the winners of the biggest or most competitive hackathons.
+    h3 Dataset
+    table.u-full-width
+      thead
+        tr
+          th Metric
+          th Value
+      tbody
+        tr
+          td Number of hackathons
+          td #{dataStats.count}
+        tr
+          td Latest hack
+          td #{dataStats.newestTimestamp}
+        tr
+          td Oldest hack
+          td #{dataStats.oldestTimestamp}

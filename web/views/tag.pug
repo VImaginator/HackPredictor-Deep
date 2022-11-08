@@ -1,0 +1,44 @@
+
+extends base.pug
+
+block container
+  h1 #{tagName} - #{tagPopularity} projects
+
+  br
+  div.row
+    div.five.columns
+      div.chart-container
+        canvas#tagAwardRate
+        script!="var tagSuccessRate = " + JSON.stringify(tagSuccessRate)
+    div.seven.columns
+      div.chart-container
+        canvas#tagTimedPopularity
+        script!="var tagTimedPopularity = " + JSON.stringify(tagTrenddata)
+      br
+      p Related tags: 
+        each relatedTag, index in tagRelatedTags.slice(1)
+            - var tag_url = "/tags/" + relatedTag._id
+            a(href=tag_url)=relatedTag._id
+
+            if index != tagRelatedTags.length-2
+              span=", "
+  br
+  br
+  h3 Top projects tagged #{tagName}
+
+  table.u-full-width
+    thead
+      tr
+        th Project Name
+        th Number of Likes
+        th Number of Awards
+        th DeepHack rating
+    tbody
+      each project in tagTopProjects.slice(0, 10)
+        tr
+          td
+            - var project_url = "https://devpost.com/software/" + project.id
+            a(href=project_url)=project.name
+          td #{project.num_likes}
+          td #{project.num_prizes}
+          td= Math.floor(project.rating*100)/100
